@@ -18,14 +18,22 @@ export default {
             });
     },
 
-    addPost(post) {
-        return axios
-            .post('https://cw-instaclone.herokuapp.com/api/posts', {
-                headers: {
-                    'Authorization': `JWT ${AsyncStorage.getItem('authToken')}`
-                }
-            }, post)
-            .then(r => r.data);
+    async addPost(post) {
+        return AsyncStorage
+            .getItem('authToken')
+            .then(token => {
+                console.log('HEY LOOK A ', token);
+                return axios
+                .post('https://cw-instaclone.herokuapp.com/api/posts', {
+                    headers: {
+                        'Authorization': `JWT ${token}`
+                    }
+                }, post)
+            })
+            .then(r => {
+                console.log('Did we get here?', r.data);
+                return r.data;
+            });
     },
 
     updatePost(post) {

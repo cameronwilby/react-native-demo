@@ -23,14 +23,19 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@expo/vector-icons": "^4.0.0",
+    "aws-sdk": "^2.50.0",
     "axios": "^0.16.1",
     "expo": "^16.0.0",
+    "native-base": "^2.1.3",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.43.4",
+    "react-native-aws3": "^0.0.8",
     "react-navigation": "^1.0.0-beta.9",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-promise": "^0.5.3",
-    "redux-promise-middleware": "^4.2.0"
+    "redux-promise-middleware": "^4.2.0",
+    "uuid": "^3.0.1"
   }
 }

@@ -1,7 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text, AsyncStorage } from 'react-native';
+import { Container, Content } from 'native-base';
 import { NavigationActions } from 'react-navigation';
+
+import Post from '../components/Post';
 
 import { getAllPosts } from '../actions/postActions';
 
@@ -11,16 +14,12 @@ class FeedScreen extends React.Component {
     }
 
     render() {
-        const Alert = this.props.posts.length ? null : (<Text>No posts!</Text>);
-        const Posts = this.props.posts.map((post, i) => (
-            <Text key={i}>{post.title}</Text>
-        ));
-
         return (
-            <View>
-                {Alert}
-                {Posts}                
-            </View>
+            <Container>
+                <Content>
+                    {this.props.posts.map((p, i) => <Post key={i} post={p}></Post>)}
+                </Content>
+            </Container>
         )
     }
 }
